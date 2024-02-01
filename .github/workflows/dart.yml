@@ -1,13 +1,12 @@
-# Note: This workflow relies on third-party actions not certified by GitHub,
-# subject to separate terms of service, privacy policy, and support documentation.
-
-name: Dart
+name: Flutter CI
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
   pull_request:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
   build:
@@ -17,16 +16,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Set up Java
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'zulu'
-          java-version: '11'
-
-      - name: Setup Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.7.7'
+          flutter-version: '2.10.2' # Replace with your desired Flutter version
 
       - name: Install Dependencies
         run: flutter pub get
