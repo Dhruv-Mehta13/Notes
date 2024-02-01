@@ -1,4 +1,4 @@
-# flutterfire
+# flutterfiree
 
 A new Flutter project.
 
