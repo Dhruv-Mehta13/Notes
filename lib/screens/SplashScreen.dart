@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void initState() {
     super.initState();
-    _checkUserStatus();
+    // _checkUserStatus();
   }
 
   @override

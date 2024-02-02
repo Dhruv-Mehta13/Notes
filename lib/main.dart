@@ -20,16 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FutureBuilder(
-        future: FirebaseAuth.instance.authStateChanges().first,
-        builder: (context, AsyncSnapshot<User?> snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
-          } else {
-            return snapshot.hasData ? Home() : SplashScreen();
-          }
-        },
-      ),
+      home: FirebaseAuth.instance.currentUser != null ? Home() : SplashScreen(),
     );
   }
 }

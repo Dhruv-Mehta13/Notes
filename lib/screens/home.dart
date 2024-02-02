@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -14,6 +16,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.blueGrey[50],
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.blueGrey[50],
         title: Text(
           'Notes',
@@ -28,9 +31,11 @@ class _HomeState extends State<Home> {
             ),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+            },
             icon: Icon(
-              Icons.info,
+              Icons.logout,
               size: 30,
             ),
           ),
@@ -74,7 +79,7 @@ class _FirstNoteState extends State<FirstNote> {
               style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => NotesExist()));
+                    MaterialPageRoute(builder: (context) => NoteArea()));
               },
               child: Icon(
                 Icons.add,

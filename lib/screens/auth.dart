@@ -33,53 +33,56 @@ class _AuthpageState extends State<AuthPage> {
           children: [
             Lottie.asset(
               'asset/hello.json',
-              height: 400,
               repeat: true,
-              reverse: false,
-              animate: true,
             ),
-            Column(
-              children: [
-                Center(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    height: MediaQuery.of(context).size.height * 0.05,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: CupertinoSlidingSegmentedControl(
-                      thumbColor: Color.fromRGBO(0, 137, 133, 1),
-                      backgroundColor: Colors.white,
-                      children: const {
-                        0: Text("Sign Up",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w300)),
-                        1: Text("Sign In",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w300)),
-                      },
-                      onValueChanged: (int? val) {
-                        if (val != null) {
-                          setState(() {
-                            _currentSegment = val;
-                          });
-                        }
-                      },
-                      groupValue: _currentSegment,
-                    ),
+            SizedBox(
+              child: Column(
+                children: [
+                  Column(
+                    children: [
+                      Center(
+                        child: Container(
+                          padding: EdgeInsets.all(16),
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: CupertinoSlidingSegmentedControl(
+                            thumbColor: Color.fromRGBO(0, 137, 133, 1),
+                            backgroundColor: Colors.white,
+                            children: const {
+                              0: Text("Sign Up",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w300)),
+                              1: Text("Sign In",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w300)),
+                            },
+                            onValueChanged: (int? val) {
+                              if (val != null) {
+                                setState(() {
+                                  _currentSegment = val;
+                                });
+                              }
+                            },
+                            groupValue: _currentSegment,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  _currentSegment == 0
+                      ? SignUpWidget()
+                      : _currentSegment == 1
+                          ? SignInWidget()
+                          : Container(),
+                ],
+              ),
             ),
-            _currentSegment == 0
-                ? SignUpWidget()
-                : _currentSegment == 1
-                    ? SignInWidget()
-                    : Container(),
           ],
         ),
       ),
@@ -125,7 +128,7 @@ class _SignInWidgetState extends State<SignInWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: MediaQuery.of(context).size.width * 0.8,
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -153,7 +156,7 @@ class _SignInWidgetState extends State<SignInWidget> {
           ),
           SizedBox(height: 16),
           Container(
-            width: MediaQuery.of(context).size.width * 0.8,
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -243,7 +246,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: MediaQuery.of(context).size.width * 0.8,
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -269,7 +272,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           ),
           SizedBox(height: 16),
           Container(
-            width: MediaQuery.of(context).size.width * 0.8,
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -296,7 +299,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
           ),
           SizedBox(height: 16),
           Container(
-            width: MediaQuery.of(context).size.width * 0.8,
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
