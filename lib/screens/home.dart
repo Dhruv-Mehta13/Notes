@@ -237,8 +237,8 @@ class NoteContainer extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => EditnoteScreen(
                     id: id,
-                    initialNote: title,
-                    initialTitle: note,
+                    initialNote: note,
+                    initialTitle: title,
                     userCollection: userCollection)));
       },
       child: Container(
